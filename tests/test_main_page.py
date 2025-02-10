@@ -1,5 +1,6 @@
 import allure
 from conftest import get_driver, create_user
+from data.data import MessageText
 from data.urls import Urls
 from pages.main_page import MainPage
 from pages.password_recovery_page import PasswordRecoveryPage
@@ -28,7 +29,7 @@ class TestMainPage:
     def test_click_ingredient_visible_detail_ingredient(self, get_driver):
         main_page = MainPage(get_driver)
         main_page.click_ingredient()
-        result = "Детали ингредиента"
+        result = MessageText.DITAIL_INGREDIENT
         assert result in main_page.get_text_ditail_ingredient()
 
     @allure.title("Тест проверяет закрытие деталей ингредиента")
@@ -59,5 +60,5 @@ class TestMainPage:
         personal_account_page.authorization_user(create_user)
         main_page.add_ingredient_to_order()
         main_page.click_order_button()
-        result = "Ваш заказ начали готовить"
+        result = MessageText.ORDER_STARTED
         assert result == main_page.check_order_started()

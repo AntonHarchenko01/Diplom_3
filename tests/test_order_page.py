@@ -1,5 +1,6 @@
 import allure
 
+from data.data import MessageText
 from pages.main_page import MainPage
 from pages.order_page import OrderPage
 from conftest import get_driver, create_user
@@ -14,7 +15,7 @@ class TestOrder:
         order_page = OrderPage(get_driver)
         main_page.click_order_feed_button()
         order_page.click_order()
-        result = "Cостав"
+        result = MessageText.COMPOUND
         assert result in order_page.get_text_compound()
 
     @allure.title("Тест проверки, что заказ пользователя отображается в ленте заказов")

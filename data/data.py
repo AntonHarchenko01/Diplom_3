@@ -7,3 +7,7 @@ class UserData:
 class Ingredients:
     CRATOR_BURGER = "61c0c5a71d1f82001bdaaa6c"
 
+class MessageText:
+    DITAIL_INGREDIENT = "Детали ингредиента"
+    ORDER_STARTED = "Ваш заказ начали готовить"
+    COMPOUND = "Cостав"
